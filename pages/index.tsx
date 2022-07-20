@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import HomeHero from '../components/HomeHero'
+import ProductList from '../components/ProductList'
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
 
       <main className="">
         <HomeHero />
+        <ProductList />
       </main>  
     </div>
   )
