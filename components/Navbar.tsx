@@ -28,7 +28,7 @@ const Navbar = () => {
             <Link href={''}><a className='' >Menu</a></Link>
           </div>
 
-          <h1 className="font-serif text-4xl font-black">LOGO</h1>
+          <Link href='/'><a className="font-serif text-4xl font-black">LOGO</a></Link>
 
           <div className='lg:flex hidden items-center gap-x-10 text-lg  font-semibold'>
             <Link href={''}><a className='' >Events</a></Link>
