@@ -17,9 +17,9 @@ const Product = ({pizza}:PizzaProp) => {
     const [size,setSize]=useState<string>('medium')
     const [price,setPrice]=useState<number | any>(pizza?.prices[1])
     const [quantity,setQuantity]=useState<number>(1)
-    const {cartData} = useContext(Context)
+    const {cartData,setCartData} = useContext(Context)
 
-    console.log({cartData})
+    // console.log({cartData})
 
     useEffect(()=>{
         let price
@@ -28,6 +28,21 @@ const Product = ({pizza}:PizzaProp) => {
         else if(size=='large')price=pizza.prices[2]
         setPrice(price)
     },[size])
+
+
+
+    const handleCart=()=>{
+        let list = [...cartData]
+        const data = {
+            product:pizza.img,
+            name:pizza.title,
+            price,
+            quantity,
+            total:price*quantity
+        }
+        list.push(data)
+        setCartData(list)
+    }
 
   return (
     <main className='py-10 lg:px-10 px-4 w-full' >
@@ -52,7 +67,7 @@ const Product = ({pizza}:PizzaProp) => {
                 <p className="text-xl font-semibold text-rose-800 ">Quantity</p>
                 <div className="flex gap-x-8">
                     <input type={'number'} min={1} className='p-2 outline-0 border-2 border-rose-800 rounded-lg' value={quantity} onChange={(e)=>setQuantity(Number(e.target.value))} />
-                    <button className="px-6 py-2 rounded-lg text-white bg-rose-800 active:shadow-none shadow-md border border-white hover:scale-x-105 shadow-rose-800 transition-all">Add To Cart</button>
+                    <button className="px-6 py-2 rounded-lg text-white bg-rose-800 active:shadow-none shadow-md border border-white hover:scale-x-105 shadow-rose-800 transition-all" onClick={()=>handleCart()} >Add To Cart</button>
                 </div>
             </div>
         </div>

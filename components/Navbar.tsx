@@ -1,9 +1,13 @@
-import React from 'react'
+import React,{useContext}from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping, faPhoneFlip } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import { Context } from './Context'
 
 const Navbar = () => {
+
+  const {cartData}=useContext(Context)
+
   return (
     <header className='w-full' >
       <nav className='lg:px-20 bg-rose-800 px-4 py-6  flex justify-between items-center text-white'>
@@ -34,8 +38,9 @@ const Navbar = () => {
         </div>
 
         {/*   Cart */}
-        <div>
-          <button><FontAwesomeIcon icon={faCartShopping} className='w-6  text-white ' /></button>
+        <div className='relative' >
+          <Link href={'/cart'}><button><FontAwesomeIcon icon={faCartShopping} className='w-6  text-white ' /></button></Link>
+          {cartData.length>0&&<p className='absolute -top-4 -right-4 bg-black p-1 rounded-full font-bold text-xs px-2 h-max '>{cartData.length}</p>}
         </div>
 
       </nav>
