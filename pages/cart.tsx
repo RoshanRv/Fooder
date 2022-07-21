@@ -3,13 +3,13 @@ import Image from 'next/image'
 
 const Cart = () => {
   return (
-    <main className='flex gap-x-6 items-start lg:p-10 p-4 w-full'>
+    <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
         {/* table */}
-        <section className='w-3/4' >
-            <table className='w-full'>
+        <section className='lg:w-3/4 w-full' >
+            <table className='lg:w-full w-max mx-auto flex lg:table'>
                 <thead>
-                    <tr>
-                        <th>Product</th>
+                    <tr className='text-center h-full bg-rose-800 flex flex-col lg:table-row justify-around' >
+                        <th className='' >Product</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -41,12 +41,12 @@ const Cart = () => {
             </table>
         </section>
         {/*         Total    */}
-        <div className="bg-gray-800 p-10 text-white text-xl w-1/4 flex flex-col gap-y-6 rounded-lg">
+        <div className="bg-gray-800 p-10 text-white text-xl mt-10 lg:mt-0 w-full lg:w-1/4 flex flex-col gap-y-6 rounded-lg">
             <h1 className="font-bold text-4xl  ">Cart Total</h1>
             <h1><span className='font-semibold' >Subtotal:</span> $40.00</h1>
             <h1><span className='font-semibold' >Discount:</span> $10.00</h1>
             <h1><span className='font-semibold' >Total:</span> $30.00</h1>
-            <button className="bg-white w-full py-2 font-semibold text-rose-800 rounded-md hover:scale-x-105 transition-all">Checkout Now!!</button>
+            <button className="text-white w-full py-2 font-semibold bg-rose-800 border-2 border-white rounded-md hover:scale-x-105 transition-all">Checkout Now!!</button>
         </div>
     </main>
   )
