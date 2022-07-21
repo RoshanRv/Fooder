@@ -13,12 +13,12 @@ const Product = () => {
 
   return (
     <main className='py-10 lg:px-10 px-4 w-full' >
-        <div className="md:flex gap-x-8 items-start justify-around w-full">
-            <div className={`relative w-[30rem] h-[30rem] transition-all ${size=='small'?'scale-75':size=='medium'?'scale-90':size=='large'&&'scale-100'}`} >
-                <Image src='/img/pizza.png' layout='fill'/>
+        <div className="lg:flex gap-x-8 items-start justify-around w-full">
+            <div className={`relative w-[20rem] h-[20rem] mx-auto md:w-[30rem] md:h-[30rem] transition-all ${size=='small'?'scale-75':size=='medium'?'scale-90':size=='large'&&'scale-100'}`} >
+                <img src='/img/pizza.png'/>
             </div>
 
-            <div className='text-left flex flex-col gap-y-6 w-1/2 pt-10' >
+            <div className='text-left flex flex-col gap-y-6 w-full lg:w-1/2 pt-10 mx-auto' >
                 <h1 className="text-6xl font-serif font-black text-rose-800">Pizza</h1>
                 <p className="font-mono font-semibold text-xl">$ 25.00</p>
                 <p className="text-lg font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ex, suscipit praesentium non voluptatum porro? Numquam quos cum officia magnam dolore omnis excepturi. Omnis quia, corrupti quam animi tenetur voluptates.</p>
