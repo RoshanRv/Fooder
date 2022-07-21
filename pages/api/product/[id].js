@@ -1,9 +1,8 @@
 import dbConnect from '../../../utlis/mongo'
 import Product from '../../../modals/Product'
 import mongoose from 'mongoose'
-import { NextApiRequest, NextApiResponse } from 'next'
 
-const handler = async (req:NextApiRequest,res:NextApiResponse)=>{
+const handler = async (req,res)=>{
 
     const {
         method,

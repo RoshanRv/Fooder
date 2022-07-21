@@ -1,7 +1,7 @@
-import React, { useState ,useEffect} from 'react'
-import Image from 'next/image'
+import React, { useState ,useEffect,useContext} from 'react'
 import axios from 'axios'
 import {PizzaList} from '../../types'
+import {Context} from '../../components/Context'
 
 interface Props{
     selected:string,
@@ -17,8 +17,9 @@ const Product = ({pizza}:PizzaProp) => {
     const [size,setSize]=useState<string>('medium')
     const [price,setPrice]=useState<number | any>(pizza?.prices[1])
     const [quantity,setQuantity]=useState<number>(1)
+    const {cartData} = useContext(Context)
 
-    console.log(pizza)
+    console.log({cartData})
 
     useEffect(()=>{
         let price
