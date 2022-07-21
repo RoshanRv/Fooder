@@ -30,9 +30,9 @@ const HomeHero = () => {
             </div>
         </section>
         {/* left */}
-        <button className='z-50 fixed top-1/2  -translate-y-1/2 md:left-10 left-4' onClick={()=>handlePrevious()} ><FontAwesomeIcon icon={faAngleLeft} className='w-10 text-white h-12 rounded-full bg-white/20 p-2 z-50 px-2' /></button>
+        <button className='z-50 absolute top-1/2  -translate-y-1/2 md:left-10 left-4' onClick={()=>handlePrevious()} ><FontAwesomeIcon icon={faAngleLeft} className='w-10 text-white h-12 rounded-full bg-white/20 p-2 z-50 px-2' /></button>
         {/* right */}
-        <button className='z-50 fixed top-1/2 -translate-y-1/2 md:right-10 right-4' onClick={()=>handleNext()} ><FontAwesomeIcon icon={faAngleRight} className='w-10 text-white h-12 rounded-full bg-white/20 p-2 z-50 px-2' /></button>
+        <button className='z-50 absolute top-1/2 -translate-y-1/2 md:right-10 right-4' onClick={()=>handleNext()} ><FontAwesomeIcon icon={faAngleRight} className='w-10 text-white h-12 rounded-full bg-white/20 p-2 z-50 px-2' /></button>
     </section>
    
   )
