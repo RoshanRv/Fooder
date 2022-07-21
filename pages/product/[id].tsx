@@ -1,27 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import Image from 'next/image'
+import axios from 'axios'
+import {PizzaList} from '../../types'
 
 interface Props{
     selected:string,
     size:string
 }
 
-const Product = () => {
+interface PizzaProp{
+    pizza:PizzaList
+}
+
+const Product = ({pizza}:PizzaProp) => {
 
     const [size,setSize]=useState<string>('medium')
+    const [price,setPrice]=useState<number | any>(pizza?.prices[1])
     const [quantity,setQuantity]=useState<number>(1)
+
+    console.log(pizza)
+
+    useEffect(()=>{
+        let price
+        if(size=='small')price=pizza.prices[0]
+        else if(size=='medium')price=pizza.prices[1]
+        else if(size=='large')price=pizza.prices[2]
+        setPrice(price)
+    },[size])
 
   return (
     <main className='py-10 lg:px-10 px-4 w-full' >
         <div className="lg:flex gap-x-8 items-start justify-around w-full">
             <div className={`relative w-[20rem] h-[20rem] mx-auto md:w-[30rem] md:h-[30rem] transition-all ${size=='small'?'scale-75':size=='medium'?'scale-90':size=='large'&&'scale-100'}`} >
-                <img src='/img/pizza.png'/>
+                <img src={pizza.img}/>
             </div>
 
             <div className='text-left flex flex-col gap-y-6 w-full lg:w-1/2 pt-10 mx-auto' >
-                <h1 className="text-6xl font-serif font-black text-rose-800">Pizza</h1>
-                <p className="font-mono font-semibold text-xl">$ 25.00</p>
-                <p className="text-lg font-light my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ex, suscipit praesentium non voluptatum porro? Numquam quos cum officia magnam dolore omnis excepturi. Omnis quia, corrupti quam animi tenetur voluptates.</p>
+                <h1 className="text-6xl font-serif font-black text-rose-800">{pizza.title}</h1>
+                <p className="font-mono font-semibold text-xl">{`₹${price}`}</p>
+                <p className="text-lg font-light my-2">{pizza.desc}</p>
                 {/*         size */}
                 <p className="text-xl font-semibold text-rose-800 ">Choose The Size</p>
                 <div className='flex items-center my-4 gap-x-8'>
@@ -50,4 +67,23 @@ const PizzaSize = ({selected,size}:Props)=>{
             <h1 className="capitalize">{size}</h1>
         </div>
     )
+}
+
+export const getServerSideProps = async ({query}:any)=>{
+    try{
+        const product = await axios.get(`http://localhost:3000/api/product/${query.id}`)
+
+        return {
+          props:{
+            pizza:product.data,
+            err:false
+          }
+        }
+    }catch(err){
+      return{
+        props:{
+          err:true
+        }
+      }
+    }
 }

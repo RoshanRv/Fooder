@@ -3,5 +3,5 @@ export interface PizzaList{
     title:string,
     img:string,
     desc:string,
-    prices:[number]
+    prices:[number,number,number]
 }
