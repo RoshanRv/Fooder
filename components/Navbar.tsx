@@ -15,6 +15,7 @@ const Navbar = () => {
             <p className='font-bold text-xl' >0123 789</p>
           </div>
         </div>
+        {/*     menu button  */}
         <button className='lg:hidden'><FontAwesomeIcon icon={faBars} className='w-6 ' /></button>
         {/*   LOGO */}
         <div className="flex items-center gap-x-10">
