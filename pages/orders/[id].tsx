@@ -16,10 +16,10 @@ const Order = () => {
     const [status,setStatus]=useState<number>(3)
 
   return (
-    <main className='flex gap-x-6 items-start lg:p-10 p-4 w-full'>
+    <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
         {/* table */}
-        <section className='w-3/4' >
-            <table className='w-full'>
+        <section className='lg:w-3/4 w-full text-center' >
+            <table className='lg:w-full w-max flex lg:table mx-auto'>
                 <thead>
                     <tr className=''>
                         <th>Order ID </th>
@@ -51,7 +51,7 @@ const Order = () => {
             </div>
         </section>
         {/*         Total    */}
-        <div className="bg-gray-800 p-10 text-white text-xl w-1/4 flex flex-col gap-y-6 rounded-lg">
+        <div className="bg-gray-800 p-10 text-white mt-12 lg:mt-0  text-xl w-full lg:w-1/4 flex flex-col gap-y-6 rounded-lg">
             <h1 className="font-bold text-4xl  ">Cart Total</h1>
             <h1><span className='font-semibold' >Subtotal:</span> $40.00</h1>
             <h1><span className='font-semibold' >Discount:</span> $10.00</h1>
@@ -66,9 +66,9 @@ export default Order
 
 export const StatusCard=({status,index,text,icon}:Props)=>{
     return(
-        <div className={`${status>index?'opacity-100':status==index?'animate-pulse':'opacity-20'} text-center flex flex-col gap-y-3 `} >
-            <FontAwesomeIcon icon={icon} className='text-5xl' />
-            <h1 className='text-lg font-semibold capitalize' >{text}</h1>
+        <div className={`${status>index?'opacity-100':status==index?'animate-pulse':'opacity-20'} text-center flex gap-x-1 flex-col gap-y-3 `} >
+            <FontAwesomeIcon icon={icon} className='md:text-5xl text-2xl' />
+            <h1 className='md:text-lg text-sm font-semibold capitalize' >{text}</h1>
             <div className={`w-max rounded-full mx-auto  bg-green-500 ${status>index?'block':'hidden'}`}>
                 <FontAwesomeIcon icon={faCheck} className='font-black text-white text-xl pb-0 p-1 px-2 rounded-full'/>
             </div>

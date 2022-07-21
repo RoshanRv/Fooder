@@ -20,3 +20,11 @@ th{
     text-transform: uppercase;
 }
 
+@media (max-width:1023px) {
+    
+    tr { display: block; float: left; }
+    th, td { display: block; }
+
+}
+
+
