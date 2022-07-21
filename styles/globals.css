@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    --pri:#9f1239
+}
+
+td{
+    padding: .75rem;
+    border: 2px solid rgb(220, 220, 220);
+    text-transform: uppercase;
+}
+
+th{
+    background-color: var(--pri);
+    color:white;
+    padding: 0.75rem;
+    border: 2px solid var(--pri);
+    text-transform: uppercase;
+}
+
