@@ -2,18 +2,31 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBowlRice,faPersonBiking,faBoxOpen,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
+import axios from 'axios'
 
-interface Props{
+interface StatusProps{
     status:number,
     index:number,
     text:string,
     icon:any
 }
 
+interface OrderProps{
+    order:{
+        _id:string,
+        customer:string,
+        address:string,
+        total:number,
+        status:number
+    }
+}
 
-const Order = () => {
 
-    const [status,setStatus]=useState<number>(3)
+const Order = ({order}:OrderProps) => {
+
+    const [status,setStatus]=useState<number>(order.status)
+
+    console.log(order)
 
   return (
     <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
@@ -30,10 +43,10 @@ const Order = () => {
                 </thead>
                 <tbody>
                     <tr className='text-center font-semibold'>
-                        <td>12345667</td>
-                        <td>John Doe</td>
-                        <td>34/1 , Flat B</td>
-                        <td>$40.00</td>
+                        <td>{order._id}</td>
+                        <td>{order.customer}</td>
+                        <td>{order.address}</td>
+                        <td>{`₹${order.total}`}</td>
                     </tr>
                 </tbody>
             </table>
@@ -53,9 +66,9 @@ const Order = () => {
         {/*         Total    */}
         <div className="bg-gray-800 p-10 text-white mt-12 lg:mt-0  text-xl w-full lg:w-1/4 flex flex-col gap-y-6 rounded-lg">
             <h1 className="font-bold text-4xl  ">Cart Total</h1>
-            <h1><span className='font-semibold' >Subtotal:</span> $40.00</h1>
-            <h1><span className='font-semibold' >Discount:</span> $10.00</h1>
-            <h1><span className='font-semibold' >Total:</span> $30.00</h1>
+            <h1><span className='font-semibold' >Subtotal:</span>{`₹${order.total}`}</h1>
+            <h1><span className='font-semibold' >Discount:</span> {`₹0`}</h1>
+            <h1><span className='font-semibold' >Total:</span> {`₹${order.total}`}</h1>
             <button className="text-white w-full py-2 font-semibold bg-green-600 border-2 border-white rounded-md hover:scale-x-105 transition-all">Paid</button>
         </div>
     </main>
@@ -64,7 +77,7 @@ const Order = () => {
 
 export default Order
 
-export const StatusCard=({status,index,text,icon}:Props)=>{
+export const StatusCard=({status,index,text,icon}:StatusProps)=>{
     return(
         <div className={`${status>index?'opacity-100':status==index?'animate-pulse':'opacity-20'} text-center flex gap-x-1 flex-col gap-y-3 `} >
             <FontAwesomeIcon icon={icon} className='md:text-5xl text-2xl' />
@@ -74,4 +87,21 @@ export const StatusCard=({status,index,text,icon}:Props)=>{
             </div>
         </div>
     )
+}
+
+interface ServerProps{
+    query:{
+        id:string
+    }
+}
+
+export const getServerSideProps =async ({query}:ServerProps)=>{
+
+    const order = await axios.get(`http://localhost:3000/api/order/${query.id}`)
+
+    return {
+        props:{
+            order:order.data
+        }
+    }
 }
