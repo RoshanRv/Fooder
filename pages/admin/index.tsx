@@ -43,7 +43,7 @@ const Admin = ({products,orders}:AdminProp) => {
     const handleNextStage = async (order:Order)=>{
         const currStatus = order.status
 
-        const res = await axios.put(`http://localhost:3000/api/order/${order._id}`,{
+        const res = await axios.put(`https://fooder.vercel.app/api/order/${order._id}`,{
             status:currStatus+1
         })
 
@@ -54,7 +54,7 @@ const Admin = ({products,orders}:AdminProp) => {
 
     const handleDelete = async(id:string)=>{
 
-        const res = await axios.delete(`http://localhost:3000/api/product/${id}`)
+        const res = await axios.delete(`https://fooder.vercel.app/api/product/${id}`)
         if(res){
             setProductsList([
                 ...productsList.filter(product=>product._id!==id)
@@ -172,7 +172,7 @@ export const EditProduct = ({showModal,setShowModal,setProductsList,productsList
     },[showModal.show])
 
     const handleEdit= async ()=>{
-        const res = await axios.put(`http://localhost:3000/api/product/${showModal.product._id}`,{
+        const res = await axios.put(`https://fooder.vercel.app/api/product/${showModal.product._id}`,{
             title,img,desc,
             prices:[smallPrice,mediumPrice,largePrice]
         })
@@ -220,8 +220,8 @@ export const getServerSideProps= async (ctx:any)=>{
 
     }
     
-    const products = await axios.get('http://localhost:3000/api/product')
-    const orders = await axios.get('http://localhost:3000/api/order')
+    const products = await axios.get('https://fooder.vercel.app/api/product')
+    const orders = await axios.get('https://fooder.vercel.app/api/order')
 
     return {
         props:{
