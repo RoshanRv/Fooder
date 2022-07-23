@@ -16,6 +16,15 @@ const handler = async(req,res)=>{
         }
     }
 
+    if(method=='PUT'){
+        try{
+            const order = await Order.findByIdAndUpdate(mongoose.Types.ObjectId(id),req.body,{new:true}) //new:true returns the modified value instead of old value
+            res.status(200).json(order)
+        }catch(err){
+            res.status(500).json(err)
+        }
+    }
+
 }
 
 export default handler
