@@ -26,7 +26,6 @@ const Order = ({order}:OrderProps) => {
 
     const [status,setStatus]=useState<number>(order.status)
 
-    console.log(order)
 
   return (
     <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
