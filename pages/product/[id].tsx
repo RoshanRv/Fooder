@@ -2,6 +2,7 @@ import React, { useState ,useEffect,useContext} from 'react'
 import axios from 'axios'
 import {PizzaList} from '../../types'
 import {Context} from '../../components/Context'
+import Head from 'next/head'
 
 interface Props{
     selected:string,
@@ -45,6 +46,32 @@ const Product = ({pizza}:PizzaProp) => {
     }
 
   return (
+      <>
+
+        <Head>
+        <title>F🍔🍔der | {pizza.title}</title>
+            <link rel="icon" href="/favicon.ico" />          
+            <meta
+                name="description"
+                content={`Order Delicious And Lip Smacking Pizzas`}
+            />
+
+            <meta property="og:image" content={pizza.img} />
+            <meta property="og:title" content={pizza?.title + ' and more!'} />
+            <meta
+                property="og:description"
+                content={pizza?.desc}
+            />
+
+            <meta property="twitter:image" content={pizza.img} />
+            <meta property="twitter:title" content={pizza?.title + ' and more!'} />
+            <meta
+                property="twitter:description"
+                content={pizza?.desc}
+            />
+        </Head>
+
+
     <main className='py-10 lg:px-10 px-4 w-full min-h-[85vh]' >
         <div className="lg:flex gap-x-8 items-start justify-around w-full">
             <div className={`relative w-[20rem] h-[20rem] mx-auto md:w-[30rem] md:h-[30rem] transition-all ${size=='small'?'scale-75':size=='medium'?'scale-90':size=='large'&&'scale-100'}`} >
@@ -72,6 +99,7 @@ const Product = ({pizza}:PizzaProp) => {
             </div>
         </div>
     </main>
+    </>
   )
 }
 

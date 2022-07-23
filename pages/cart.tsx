@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import Head from 'next/head'
 
 const Cart = () => {
 
@@ -39,6 +40,16 @@ const Cart = () => {
     }
 
   return (
+      <>
+       <Head>
+      <title>F🍔🍔der | Cart</title>
+        <link rel="icon" href="/favicon.ico" />          
+        <meta
+            name="description"
+            content={`Order Delicious And Lip Smacking Pizzas`}
+          />
+
+    </Head>
     <main className='lg:flex gap-x-6 items-start lg:p-10 min-h-[90vh] p-4 w-full'>
         {/* table */}
         <section className='lg:w-3/4 w-full' >
@@ -101,6 +112,7 @@ const Cart = () => {
             </div>
         </section>
     </main>
+    </>
   )
 }
 

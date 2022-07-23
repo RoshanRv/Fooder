@@ -5,7 +5,7 @@ import {PizzaList} from '../types'
 import PizzaCard from '../components/PizzaCard'
 
 interface Props{
-  pizzaList?:[PizzaList]
+  pizzaList:[PizzaList]
   err:boolean
 }
 
@@ -15,10 +15,29 @@ const Home = ({pizzaList,err}:Props) => {
 
   return (
     <div className=" min-h-screen ">
+      
       <Head>
-        <title>F🍔🍔der</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <title>F🍔🍔der | Home</title>
+        <link rel="icon" href="/favicon.ico" />          
+        <meta
+            name="description"
+            content={`Order Delicious And Lip Smacking Pizzas`}
+          />
+
+          <meta property="og:image" content={pizzaList[0].img} />
+          <meta property="og:title" content={pizzaList[0]?.title + ' and more!'} />
+          <meta
+            property="og:description"
+            content={pizzaList[0]?.desc}
+          />
+
+          <meta property="twitter:image" content={pizzaList[0].img} />
+          <meta property="twitter:title" content={pizzaList[0]?.title + ' and more!'} />
+          <meta
+            property="twitter:description"
+            content={pizzaList[0]?.desc}
+          />
+    </Head>
 
       <main className="">
         <HomeHero />

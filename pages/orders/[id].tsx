@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBowlRice,faPersonBiking,faBoxOpen,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import axios from 'axios'
+import Head from 'next/head'
 
 interface StatusProps{
     status:number,
@@ -28,6 +29,16 @@ const Order = ({order}:OrderProps) => {
 
 
   return (
+      <>
+      <Head>
+      <title>F🍔🍔der | Order</title>
+        <link rel="icon" href="/favicon.ico" />          
+        <meta
+            name="description"
+            content={`Order Delicious And Lip Smacking Pizzas`}
+          />
+
+    </Head>
     <main className='lg:flex gap-x-6 min-h-[85vh] items-start lg:p-10 p-4 w-full'>
         {/* table */}
         <section className='lg:w-3/4 w-full text-center' >
@@ -71,6 +82,7 @@ const Order = ({order}:OrderProps) => {
             <button className="text-white w-full py-2 font-semibold bg-green-600 border-2 border-white rounded-md hover:scale-x-105 transition-all">Paid</button>
         </div>
     </main>
+    </>
   )
 }
 
