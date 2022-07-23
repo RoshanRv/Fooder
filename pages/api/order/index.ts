@@ -4,7 +4,12 @@ import dbConnect from "../../../utlis/mongo";
 const handler = async (req:any,res:any)=>{
     const {method} = req
 
-    dbConnect()
+    try{
+
+        dbConnect()
+    }catch(err){
+        res.json(err,'oops')
+    }
 
     if(method=='GET'){
         try{
