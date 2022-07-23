@@ -39,7 +39,7 @@ const Cart = () => {
     }
 
   return (
-    <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
+    <main className='lg:flex gap-x-6 items-start lg:p-10 min-h-[90vh] p-4 w-full'>
         {/* table */}
         <section className='lg:w-3/4 w-full' >
             <table className='lg:w-full w-max mx-auto flex lg:table'>

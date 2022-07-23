@@ -20,20 +20,19 @@ const Navbar = () => {
           </div>
         </div>
         {/*     menu button  */}
-        <button className='lg:hidden'><FontAwesomeIcon icon={faBars} className='w-6 ' /></button>
         {/*   LOGO */}
         <div className="flex items-center gap-x-10">
-          <div className=' items-center gap-x-10 text-lg hidden lg:flex  font-semibold'>
+          {/* <div className=' items-center gap-x-10 text-lg hidden lg:flex  font-semibold'>
             <Link href={''}><a className='' >Products</a></Link>
             <Link href={''}><a className='' >Menu</a></Link>
-          </div>
+          </div> */}
 
-          <Link href='/'><a className="font-serif text-4xl font-black">LOGO</a></Link>
+          <Link href='/'><a className="font-serif text-4xl font-black">F🍔🍔der</a></Link>
 
-          <div className='lg:flex hidden items-center gap-x-10 text-lg  font-semibold'>
+          {/* <div className='lg:flex hidden items-center gap-x-10 text-lg  font-semibold'>
             <Link href={''}><a className='' >Events</a></Link>
             <Link href={''}><a className='' >Contact</a></Link>
-          </div>
+          </div> */}
 
         </div>
 

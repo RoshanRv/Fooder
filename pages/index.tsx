@@ -12,7 +12,6 @@ interface Props{
 
 const Home = ({pizzaList,err}:Props) => {
 
-  console.log(pizzaList)
 
   return (
     <div className=" min-h-screen ">

@@ -28,7 +28,7 @@ const Order = ({order}:OrderProps) => {
 
 
   return (
-    <main className='lg:flex gap-x-6 items-start lg:p-10 p-4 w-full'>
+    <main className='lg:flex gap-x-6 min-h-[85vh] items-start lg:p-10 p-4 w-full'>
         {/* table */}
         <section className='lg:w-3/4 w-full text-center' >
             <table className='lg:w-full w-max flex lg:table mx-auto'>
@@ -82,7 +82,7 @@ export const StatusCard=({status,index,text,icon}:StatusProps)=>{
             <FontAwesomeIcon icon={icon} className='md:text-5xl text-2xl' />
             <h1 className='md:text-lg text-sm font-semibold capitalize' >{text}</h1>
             <div className={`w-max rounded-full mx-auto  bg-green-500 ${status>index?'block':'hidden'}`}>
-                <FontAwesomeIcon icon={faCheck} className='font-black text-white text-xl pb-0 p-1 px-2 rounded-full'/>
+                <FontAwesomeIcon icon={faCheck} className='font-black text-white w-8  text-xl p-1 px-2 rounded-full'/>
             </div>
         </div>
     )
