@@ -129,7 +129,7 @@ const Admin = ({products,orders}:AdminProp) => {
                                 <td>{statusDetail[order.status-1]}</td>
                                 <td>
                                     <div className="flex gap-x-4 text-white justify-around">
-                                        <button disabled={order.status>3} className="bg-green-600 p-2 disabled:bg-green-300 rounded-md" onClick={()=>handleNextStage(order)} >Next Stage</button>
+                                        <button disabled={order.status>3} className="bg-green-600 p-2 disabled:bg-gray-400 rounded-md" onClick={()=>handleNextStage(order)} >Next Stage</button>
                                     </div>
                                 </td>
                             </tr>
@@ -186,7 +186,7 @@ export const EditProduct = ({showModal,setShowModal,setProductsList,productsList
 
     return(
         <>
-       {showModal.show&&<section className={`fixed ${showModal.show?'top-1/2':'-top-full'} lg:w-1/2 md:3/4 w-full -translate-y-1/2 right-1/2 translate-x-1/2  bg-rose-800 rounded-lg shadow-xl shadow-black  bproductorder-black transition-all`} >
+       {showModal.show&&<section className={`fixed ${showModal.show?'top-1/2':'-top-full'} lg:w-1/2 md:3/4 w-full -translate-y-1/2 right-1/2 translate-x-1/2  bg-rose-800 rounded-lg shadow-xl shadow-black  border-black transition-all`} >
             <div className="relative w-full h-full lg:p-10 p-3 flex flex-col text-center gap-y-4">
                 <button className='absolute top-3 right-3 text-white'onClick={()=>setShowModal({show:false,product:showModal.product})}  ><FontAwesomeIcon icon={faClose} className='text-2xl' /></button>
                 <h1 className="text-4xl my-4 font-semibold text-white font-serif">Edit Product Details</h1>
@@ -206,7 +206,19 @@ export const EditProduct = ({showModal,setShowModal,setProductsList,productsList
     )
 }
 
-export const getServerSideProps= async (ctx:object)=>{
+export const getServerSideProps= async (ctx:any)=>{
+
+    const cookie = ctx.req?.cookies || ''
+
+    if(cookie.token !== process.env.ADMIN_TOKEN){
+
+        return {
+            redirect:{
+                destination:'/admin/login '
+            }
+        }
+
+    }
     
     const products = await axios.get('http://localhost:3000/api/product')
     const orders = await axios.get('http://localhost:3000/api/order')
