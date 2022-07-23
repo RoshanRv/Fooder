@@ -1,6 +1,10 @@
 const handler = (req,res)=>{
 
-    res.json('It Works...')
+
+
+    res.json(process.env.MONGO_URL)
+
+
 
 }
 
