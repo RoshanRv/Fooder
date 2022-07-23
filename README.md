@@ -1,23 +1,27 @@
-# Next.js + Tailwind CSS Example
+# Fooder
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Order Lip Smacking , Delicious Pizzas Here.
 
-## Deploy your own
+![fooder-git](https://user-images.githubusercontent.com/75238302/180608789-81749f50-b56e-4b94-9120-8b9e9cfc4015.png)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## General Info
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+A SSR (Server Side Rendering) Food Order Website Usign Next JS, Mongo DB, Typescript, Mongoose & TailwindCSS With Admin Access.
 
-## How to use
+## Features
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Used SSR For Better SEO (Search Engine Optimization).
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+User Can
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- Order Delicious Foods.
+- View Status Of Their Order.
+
+Admin Can
+
+- Change Products And Their Details
+- Change The Status Of User's Order
+
+## Demo
+
+Working Site: (https://next-js-news-app-roshanrv.vercel.app/).
