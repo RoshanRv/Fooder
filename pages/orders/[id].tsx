@@ -97,11 +97,23 @@ interface ServerProps{
 
 export const getServerSideProps =async ({query}:ServerProps)=>{
 
-    const order = await axios.get(`http://localhost:3000/api/order/${query.id}`)
+    try{
+        const order = await axios.get(`http://localhost:3000/api/order/${query.id}`)
 
-    return {
-        props:{
-            order:order.data
+        return {
+            props:{
+                order:order.data
+            }
+        }
+    }catch(err){
+
+        return {
+            redirect:{
+                destination:'/',
+                permanent:false
+            }
         }
     }
+
+   
 }
