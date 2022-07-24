@@ -5,7 +5,7 @@ const handler = async (req:any,res:any)=>{
     const {method} = req
 
     try{
-        res.json('Check for errror')
+        console.log('Check for errror')
         dbConnect()
         res.json('No err da...')
     }catch(err){

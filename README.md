@@ -24,4 +24,4 @@ Admin Can
 
 ## Demo
 
-Working Site: (https://next-js-news-app-roshanrv.vercel.app/).
+Working Site: (fooder.vercel.app).
