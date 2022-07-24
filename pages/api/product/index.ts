@@ -6,7 +6,7 @@ const handler = async (req:NextApiRequest,res:NextApiResponse)=>{
 
     const {method} = req
     
-    dbConnect()
+    await dbConnect()
 
     if(method=='GET'){
         try{

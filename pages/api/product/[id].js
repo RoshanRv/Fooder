@@ -10,7 +10,7 @@ const handler = async (req,res)=>{
       } = req
 
     
-    dbConnect()
+    await dbConnect()
 
     if(method=='GET'){
         try{

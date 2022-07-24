@@ -28,7 +28,7 @@ const Cart = () => {
 
     const handleOrder = async ()=>{
         
-        const response = await axios.post(`http://localhost:3000/api/order`,{
+        const response = await axios.post(`https://fooder.vercel.app/api/order`,{
             customer:name,
             address,
             total,

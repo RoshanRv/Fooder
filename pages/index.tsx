@@ -60,7 +60,7 @@ export default Home
 
 export const getServerSideProps = async ()=>{
     try{
-        const products = await axios.get('http://localhost:3000/api/product')
+        const products = await axios.get('https://fooder.vercel.app/api/product')
 
         return {
           props:{

@@ -109,7 +109,7 @@ interface ServerProps{
 export const getServerSideProps =async ({query}:ServerProps)=>{
 
     try{
-        const order = await axios.get(`http://localhost:3000/api/order/${query.id}`)
+        const order = await axios.get(`https://fooder.vercel.app/api/order/${query.id}`)
 
         return {
             props:{

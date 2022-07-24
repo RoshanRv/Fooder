@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 const handler = async(req,res)=>{
 
     const {method,query:{id}} = req
-    dbConnect()
+    await dbConnect()
 
     if(method=='GET'){
         try{

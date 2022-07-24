@@ -115,7 +115,7 @@ const PizzaSize = ({selected,size}:Props)=>{
 
 export const getServerSideProps = async ({query}:any)=>{
     try{
-        const product = await axios.get(`http://localhost:3000/api/product/${query.id}`)
+        const product = await axios.get(`https://fooder.vercel.app/api/product/${query.id}`)
 
         return {
           props:{
