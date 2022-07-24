@@ -5,10 +5,10 @@ import dbConnect from "../../../utlis/mongo";
 const handler = async (req:any,res:any)=>{
     // const {method} = req
 
-    dbConnect()
+    await dbConnect()
     try{
         // console.log('Check for errror')
-        const order = await Product.find()
+        const order = await Order.find()
         res.json(order)
         // res.status(201).json(Order)
         // res.json('No err da...')
