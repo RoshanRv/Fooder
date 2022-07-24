@@ -1,4 +1,5 @@
 import Order from "../../../modals/Order";
+import Product from "../../../modals/Product";
 import dbConnect from "../../../utlis/mongo";
 
 const handler = async (req:any,res:any)=>{
@@ -7,8 +8,8 @@ const handler = async (req:any,res:any)=>{
     dbConnect()
     try{
         // console.log('Check for errror')
-        const order = await Order.find()
-        res.json(Order.find())
+        const order = await Product.find()
+        res.json(order)
         // res.status(201).json(Order)
         // res.json('No err da...')
     }catch(err){
