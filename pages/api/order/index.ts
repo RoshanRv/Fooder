@@ -7,7 +7,9 @@ const handler = async (req:any,res:any)=>{
     try{
         // console.log('Check for errror')
         dbConnect()
-        res.json('No err da...')
+        const order = await Order.find()
+        res.status(201).json(order)
+        // res.json('No err da...')
     }catch(err){
         res.json('oops')
     }
