@@ -24,4 +24,4 @@ Admin Can
 
 ## Demo
 
-Working Site: (fooder.vercel.app).
+Working Site: (https://fooder.vercel.app/).
