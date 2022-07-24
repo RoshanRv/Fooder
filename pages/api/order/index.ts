@@ -11,7 +11,7 @@ const handler = async (req:any,res:any)=>{
         res.status(201).json(order)
         // res.json('No err da...')
     }catch(err){
-        res.json('oops')
+        res.json(err)
     }
 
     // if(method=='GET'){
