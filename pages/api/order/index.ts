@@ -8,10 +8,11 @@ const handler = async (req:any,res:any)=>{
     try{
         // console.log('Check for errror')
         const order = await Order.find()
-        res.status(201).json(Order)
+        res.json(Order.find())
+        // res.status(201).json(Order)
         // res.json('No err da...')
     }catch(err){
-        res.json({err:Order})
+        res.json({err:Order.find()})
     }
 
     // if(method=='GET'){
